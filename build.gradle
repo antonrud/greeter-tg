@@ -1,0 +1,16 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version "$kotlin_version"
+    id 'application'
+}
+
+application {
+    mainClass.set('GreeterKt')
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "dev.inmo:tgbotapi:$telegram_bot_api_version"
+}
