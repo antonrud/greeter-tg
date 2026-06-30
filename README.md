@@ -13,3 +13,23 @@ This bot will greet new group chat members
 ```bash
 ./gradlew run --args="BOT_TOKEN"
 ```
+
+## Docker
+
+Build the image:
+
+```bash
+docker build -t greeter-tg .
+```
+
+Run the container:
+
+```bash
+docker run -e BOT_TOKEN=your_token greeter-tg
+```
+
+To enable debug logging, add `-e DEBUG=debug`:
+
+```bash
+docker run -e BOT_TOKEN=your_token -e DEBUG=debug greeter-tg
+```

@@ -13,4 +13,5 @@ repositories {
 
 dependencies {
     implementation "dev.inmo:tgbotapi:$telegram_bot_api_version"
+    runtimeOnly "org.slf4j:slf4j-simple:$slf4j_version"
 }
