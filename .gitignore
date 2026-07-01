@@ -1,6 +1,7 @@
 # Build output
 build/
 .gradle/
+!gradle-wrapper.jar
 .kotlin/
 
 # IDE
