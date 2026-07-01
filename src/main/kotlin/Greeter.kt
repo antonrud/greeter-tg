@@ -34,7 +34,7 @@ suspend fun main(args: Array<String>) {
 
     log.i { "Application started" }
 
-    bot.buildBehaviourWithLongPolling {
+    bot.buildBehaviourWithLongPolling(timeoutSeconds = 20) {
         onChatMemberJoined {
 
             val name = it.member.username?.username ?: it.member.firstName
