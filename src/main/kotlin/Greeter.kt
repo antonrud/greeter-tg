@@ -1,7 +1,6 @@
 import dev.inmo.kslog.common.KSLog
 import dev.inmo.kslog.common.LogLevel
 import dev.inmo.kslog.common.defaultMessageFormatter
-import dev.inmo.kslog.common.e
 import dev.inmo.kslog.common.i
 import dev.inmo.kslog.common.setDefaultKSLog
 import dev.inmo.tgbotapi.extensions.api.send.send
@@ -37,21 +36,15 @@ suspend fun main(args: Array<String>) {
 
     bot.buildBehaviourWithLongPolling {
         onChatMemberJoined {
-            runCatching {
 
-                val name = it.member.username?.username ?: it.member.firstName
-                log.i { "New member joined chat ${it.chat.id}: $name" }
+            val name = it.member.username?.username ?: it.member.firstName
+            log.i { "New member joined chat ${it.chat.id}: $name" }
 
-                send(
-                    chatId = it.chat.id,
-                    text = greeting.replace("{username}", name),
-                    linkPreviewOptions = LinkPreviewOptions.Disabled
-                )
-            }.onFailure { ex ->
-                log.e(ex) {
-                    "Failed to greet new member in chat ${it.chat.id}"
-                }
-            }
+            send(
+                chatId = it.chat.id,
+                text = greeting.replace("{username}", name),
+                linkPreviewOptions = LinkPreviewOptions.Disabled
+            )
         }
     }.join()
 }
